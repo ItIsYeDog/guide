@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Ubuntu Guide</h1>
+    <div class="container">
+        <nav>
+            <h2>Innholdsfortegnelse</h2>
+            <ul>
+                <li><a href="#oppretting-av-vm">Oppretting av VM</a></li>
+                <li><a href="#start-og-installere-ubuntu">Start og Installere Ubuntu</a></li>
+                <li><a href="#installere-ubuntu-webserver-nginx">Installere Ubuntu Webserver Nginx</a></li>
+                <li><a href="#lag-nettsiden">Lag Nettsiden</a></li>
+                <li><a href="#deploy-fra-git">Deploy Fra Git</a></li>
+                <li><a href="#restart-nginx">Restart Nginx</a></li>
+                <li><a href="#tips">Tips</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div id="oppretting-av-vm" class="section">
+                <h2>Tilgang til vSphere</h2>
+                <p>For å opprette en VM i VirtualBox, følg disse stegene:</p>
+                <ol>
+                    <li>Naviger til vSphere web-klienten i nettleseren din: https://10.10.1.20/ui</li>
+                    <img src="images/1.png" alt="Opprette en VM">
+                    <p>For å opprette en VM i VirtualBox, følg disse stegene:</p>
+                    <li>Høyreklikk på verten eller clusteret</li>
+                    <li>Velg "Ny Virtuell Maskin"</li>
+                    <li>Velg "Opprett en ny virtuell maskin"</li>
+                    <li>Velg navn og plassering for VM-en</li>
+                    <img src="images/2.png" alt="Velg stedet du vil at den skal bli lagret">
+                    <img src="images/3.png" alt="Velg din pool">
+                    <img src="images/4.png" alt="Velg hvilken maskin den skal bli lagret på">
+                    <p>Konfigurer VM-innstillinger</p>
+                    <li>CPU: Minimum 2 kjerner</li>
+                    <li>Minne: Minimum 4GB</li>
+                    <li>Lagring: Minimum 20GB</li>
+                    <li>Nettverk: Konfigurer nettverksadapter</li>
+                    <img src="images/5.png" alt="Velg kompatitabel">
+                    <img src="images/6.png" alt="Velg CPU, Minne og Lagring">
+                    <img src="images/7.png" alt="Velg ISO">
+                    <img src="images/8.png" alt="Sett på så den starter på connect at power on">
+                    <img src="images/9.png" alt="Klikk finish">
+                    <div class="footer">
+                        <span>Merk: Dette er minimumsspesifikasjoner. Juster basert på dine behov.</span>
+                    </div>
+                </ol>
+            </div>
+            <div id="start-og-installere-ubuntu" class="section">
+                <h2>Start og Installere Ubuntu</h2>
+                <p>For å starte Ubuntu på VM, følg disse stegene:</p>
+                <ol>
+                    <li>Trykk på "Start"</li>
+                    <li>Velg ISO-fil</li>
+                    <li>Trykk "Start"</li>
+                    <li>Velg språk og trykk "Install Ubuntu"</li>
+                    <li>Velg "Normal Installation"</li>
+                    <li>Velg "Download updates while installing Ubuntu" og "Install third-party software"</li>
+                    <li>Velg "Erase disk and install Ubuntu" og trykk "Install Now"</li>
+                    <li>Velg tidssone og tastaturoppsett</li>
+                    <li>Velg brukernavn og passord</li>
+                    <li>Trykk "Restart Now"</li>
+                </ol>
+            </div>
+
+            <div id="installere-ubuntu-webserver-nginx" class="section">
+                <h2>Installere Ubuntu Webserver Nginx</h2>
+                <p>For å installere Nginx, følg disse stegene:</p>
+                <ol>
+                    <li>Åpne terminal</li>
+                    <li>Skriv "sudo apt update"</li>
+                    <li>Skriv "sudo apt install nginx"</li>
+                    <li>Skriv "sudo ufw allow 'Nginx HTTP'"</li>
+                    <li>Skriv "sudo ufw status"</li>
+                    <li>Skriv "systemctl status nginx"</li>
+                    <li>Åpne nettleser og skriv inn IP-adressen til VM</li>
+                </ol>
+            </div>
+
+            <div id="lag-nettsiden" class="section">
+                <h2>Lag Nettsiden</h2>
+                <p>For å lage en nettside, følg disse stegene:</p>
+                <ol>
+                    <li>Åpne terminal</li>
+                    <li>Skriv "sudo nano /var/www/html/index.html"</li>
+                    <li>Skriv inn HTML-kode</li>
+                    <li>Trykk "Ctrl + X" og "Y" for å lagre</li>
+                    <li>Åpne nettleser og skriv inn IP-adressen til VM</li>
+                </ol>
+            </div>
+
+            <div id="deploy-fra-git" class="section">
+                <h2>Deploy Fra Git</h2>
+                <p>For å deploye nettsiden fra Git, følg disse stegene:</p>
+                <ol>
+                    <li>Åpne terminal</li>
+                    <li>Skriv "sudo apt install git"</li>
+                    <li>Skriv "cd /var/www/html"</li>
+                    <li>Skriv "sudo git clone URL"</li>
+                    <li>Åpne nettleser og skriv inn IP-adressen til VM</li>
+                </ol>
+            </div>
+
+            <div id="restart-nginx" class="section">
+                <h2>Restart Nginx</h2>
+                <p>For å restarte Nginx, følg disse stegene:</p>
+                <ol>
+                    <li>Åpne terminal</li>
+                    <li>Skriv "sudo systemctl restart nginx"</li>
+                </ol>
+            </div>
+
+            <div id="tips" class="section">
+                <h2>Tips</h2>
+                <p>Her er noen tips for å bruke Ubuntu:</p>
+                <ul>
+                    <li>For å oppdatere Ubuntu, skriv "sudo apt update" og "sudo apt upgrade"</li>
+                    <li>For å installere programmer, skriv "sudo apt install PROGRAM"</li>
+                    <li>For å slette filer, skriv "rm FILE"</li>
+                    <li>For å restarte Ubuntu, skriv "sudo reboot"</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
